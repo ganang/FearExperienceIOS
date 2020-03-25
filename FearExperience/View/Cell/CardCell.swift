@@ -41,7 +41,9 @@ class CardCell: BaseCell {
     }()
     
     @objc func onClickPlay() {
-        let experienceView = ExperienceViewController()
+        let experienceView = ExperienceController()
+        experienceView.modalPresentationStyle = .fullScreen
+        view?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
         view?.navigationController?.pushViewController(experienceView, animated: true)
     }
     
