@@ -9,28 +9,35 @@
 import UIKit
 import AVKit
 
-class ExperienceViewController: UIViewController, AVPlayerViewControllerDelegate {
+class ExperienceController: UIViewController, AVPlayerViewControllerDelegate {
     
-    let playerViewController = AVPlayerViewController()
-
+    var alreadyPlayVideo = false
+    let playerViewController = LandscapePlayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = .black
         let value = UIInterfaceOrientation.landscapeLeft.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
         
+        self.navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.navigationBar.isHidden = true
+        
         playVideo()
     }
     
-    override var shouldAutorotate: Bool {
-        return true
+    override func viewDidDisappear(_ animated: Bool) {
+        if alreadyPlayVideo == true {
+            Utils.lockOrientation(.portrait)
+        }
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     func playVideo() {
-        
+        Utils.lockOrientation(.all)
         guard let videoURL = URL(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")  else { print("url error"); return }
-            
+        
         let player = AVPlayer(url: videoURL)
         playerViewController.player = player
         playerViewController.showsPlaybackControls = true
@@ -38,6 +45,7 @@ class ExperienceViewController: UIViewController, AVPlayerViewControllerDelegate
             self.playerViewController.player!.play()
             self.playerViewController.addObserver(self, forKeyPath:#keyPath(UIViewController.view.frame), options: [.old, .new], context: nil)
         }
+        alreadyPlayVideo = true
     }
     
     override func observeValue(forKeyPath keyPath: String?,
@@ -45,12 +53,17 @@ class ExperienceViewController: UIViewController, AVPlayerViewControllerDelegate
                                change: [NSKeyValueChangeKey : Any]?,
                                context: UnsafeMutableRawPointer?)
     {
-
+        
         if (playerViewController.isBeingDismissed) {
             let value = UIInterfaceOrientation.portrait.rawValue
             UIDevice.current.setValue(value, forKey: "orientation")
-            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popViewController(animated: false)
         }
     }
+}
 
+class LandscapePlayer: AVPlayerViewController {
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        return .landscape
+    }
 }
