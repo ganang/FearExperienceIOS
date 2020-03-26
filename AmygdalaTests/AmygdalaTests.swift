@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import Amygdala
 
 class AmygdalaTests: XCTestCase {
 
@@ -18,16 +19,18 @@ class AmygdalaTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
+    func testParsingFearExperienceJson() {
+        let path = Bundle.main.path(forResource: "FearExperience", ofType: "json")
+        if let path = path {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let response = try Utils.fearExperienceJsonParser(data: data)
+                XCTAssertNotNil(response)
+            } catch let error {
+                XCTAssertNil(error)
+            }
+        } else {
+            XCTAssertNotNil(path)
         }
     }
-
 }
