@@ -14,5 +14,9 @@ struct FearExperienceModel: Codable {
     let mainImageString: String
     let detailImageString: String
     let fileBundleString: String
-    let tag: [String]
+    let tag: [FearExperienceTag]
+}
+
+struct FearExperienceTag: Codable {
+    let tag: String
 }
