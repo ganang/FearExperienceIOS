@@ -15,10 +15,17 @@ class CardCell: BaseCell {
     let containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .systemPink
         view.layer.cornerRadius = 12
         
         return view
+    }()
+    
+    let fearExperienceImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.layer.cornerRadius = 12
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        return imageView
     }()
 
     lazy var buttonPlay: UIButton = {
@@ -56,6 +63,12 @@ class CardCell: BaseCell {
         containerView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         containerView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         containerView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+        
+        containerView.addSubview(fearExperienceImageView)
+        fearExperienceImageView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
+        fearExperienceImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
+        fearExperienceImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
+        fearExperienceImageView.heightAnchor.constraint(equalTo: containerView.heightAnchor).isActive = true
         
         addSubview(buttonPlay)
         buttonPlay.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16).isActive = true
