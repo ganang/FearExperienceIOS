@@ -22,6 +22,7 @@
 		D77137BB242B5A2100071698 /* WarningProceedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77137BA242B5A2100071698 /* WarningProceedDelegate.swift */; };
 		D77137BD242B5F8400071698 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77137BC242B5F8400071698 /* Utils.swift */; };
 		D77137C5242B713D00071698 /* WarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77137C4242B713D00071698 /* WarningView.swift */; };
+		D79D1520242CA46600C5E1C1 /* FearExperienceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79D151F242CA46600C5E1C1 /* FearExperienceModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		D77137BA242B5A2100071698 /* WarningProceedDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningProceedDelegate.swift; sourceTree = "<group>"; };
 		D77137BC242B5F8400071698 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		D77137C4242B713D00071698 /* WarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningView.swift; sourceTree = "<group>"; };
+		D79D151F242CA46600C5E1C1 /* FearExperienceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FearExperienceModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 		D7589413242A2E6C00166F3B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D79D151F242CA46600C5E1C1 /* FearExperienceModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				A4B5B9EA2428CF37002147CA /* AppDelegate.swift in Sources */,
 				A4B5B9EC2428CF37002147CA /* SceneDelegate.swift in Sources */,
 				A4B5BA042428DA27002147CA /* BaseCell.swift in Sources */,
+				D79D1520242CA46600C5E1C1 /* FearExperienceModel.swift in Sources */,
 				D77137C5242B713D00071698 /* WarningView.swift in Sources */,
 				D7589419242B4F3600166F3B /* Constant.swift in Sources */,
 				A4B5B9FE2428D07F002147CA /* WarningController.swift in Sources */,
