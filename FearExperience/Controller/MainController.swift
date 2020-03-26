@@ -12,23 +12,41 @@ class MainController: UIViewController{
     
     private var mainView: MainView!
     private var isWarningHasBeenShown = false
+    private var fearExperiences = [FearExperienceModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Amygdala"
-        
+                
         self.mainView = MainView(frame: self.view.frame)
-        self.mainView.experienceCollectionView.delegate = self
-        self.mainView.experienceCollectionView.dataSource = self
+        setFearExperiences()
         
         setupNavigationController()
         Utils.lockOrientation(.portrait)
+        
+        self.mainView.experienceCollectionView.delegate = self
+        self.mainView.experienceCollectionView.dataSource = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
         Utils.lockOrientation(.portrait)
+    }
+    
+    private func setFearExperiences(){
+        if let path = Bundle.main.path(forResource: "FearExperience", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let response = try Utils.fearExperienceJsonParser(data: data)
+                self.fearExperiences = response!
+            } catch let error {
+                print(error)
+            }
+        } else {
+            
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -70,19 +88,19 @@ class MainController: UIViewController{
 
 extension MainController: UICollectionViewDelegate, UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return experiences.count
+        return self.fearExperiences.count
     }
        
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: experienceCellId, for: indexPath) as! CardCell
         cell.view = self
-        
+        cell.fearExperienceImageView.image = UIImage(named: self.fearExperiences[indexPath.row].mainImageString)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: view.frame.width - 32, height: 500.0)
+        return CGSize(width: view.frame.width - 32, height: view.frame.height / 1.5)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

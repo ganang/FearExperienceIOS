@@ -22,7 +22,20 @@
 		D77137BB242B5A2100071698 /* WarningProceedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77137BA242B5A2100071698 /* WarningProceedDelegate.swift */; };
 		D77137BD242B5F8400071698 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77137BC242B5F8400071698 /* Utils.swift */; };
 		D77137C5242B713D00071698 /* WarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77137C4242B713D00071698 /* WarningView.swift */; };
+		D79D1520242CA46600C5E1C1 /* FearExperienceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79D151F242CA46600C5E1C1 /* FearExperienceModel.swift */; };
+		D79D1522242CAC5A00C5E1C1 /* FearExperience.json in Resources */ = {isa = PBXBuildFile; fileRef = D79D1521242CAC5A00C5E1C1 /* FearExperience.json */; };
+		D79D152A242CACE800C5E1C1 /* AmygdalaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79D1529242CACE800C5E1C1 /* AmygdalaTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D79D152C242CACE800C5E1C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A4B5B9DE2428CF37002147CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A4B5B9E52428CF37002147CA;
+			remoteInfo = FearExperience;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		A4B5B9E62428CF37002147CA /* Amygdala.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amygdala.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,10 +55,22 @@
 		D77137BA242B5A2100071698 /* WarningProceedDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningProceedDelegate.swift; sourceTree = "<group>"; };
 		D77137BC242B5F8400071698 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		D77137C4242B713D00071698 /* WarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningView.swift; sourceTree = "<group>"; };
+		D79D151F242CA46600C5E1C1 /* FearExperienceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FearExperienceModel.swift; sourceTree = "<group>"; };
+		D79D1521242CAC5A00C5E1C1 /* FearExperience.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FearExperience.json; sourceTree = "<group>"; };
+		D79D1527242CACE800C5E1C1 /* AmygdalaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmygdalaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D79D1529242CACE800C5E1C1 /* AmygdalaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmygdalaTests.swift; sourceTree = "<group>"; };
+		D79D152B242CACE800C5E1C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A4B5B9E32428CF37002147CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D79D1524242CACE800C5E1C1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -59,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				A4B5B9E82428CF37002147CA /* FearExperience */,
+				D79D1528242CACE800C5E1C1 /* AmygdalaTests */,
 				A4B5B9E72428CF37002147CA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				A4B5B9E62428CF37002147CA /* Amygdala.app */,
+				D79D1527242CACE800C5E1C1 /* AmygdalaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,6 +111,7 @@
 				A4B5B9F42428CF39002147CA /* LaunchScreen.storyboard */,
 				A4B5B9F22428CF39002147CA /* Assets.xcassets */,
 				A4B5B9F72428CF39002147CA /* Info.plist */,
+				D79D1521242CAC5A00C5E1C1 /* FearExperience.json */,
 			);
 			path = FearExperience;
 			sourceTree = "<group>";
@@ -110,6 +138,7 @@
 		D7589413242A2E6C00166F3B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D79D151F242CA46600C5E1C1 /* FearExperienceModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -150,6 +179,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		D79D1528242CACE800C5E1C1 /* AmygdalaTests */ = {
+			isa = PBXGroup;
+			children = (
+				D79D1529242CACE800C5E1C1 /* AmygdalaTests.swift */,
+				D79D152B242CACE800C5E1C1 /* Info.plist */,
+			);
+			path = AmygdalaTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -170,6 +208,24 @@
 			productReference = A4B5B9E62428CF37002147CA /* Amygdala.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D79D1526242CACE800C5E1C1 /* AmygdalaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D79D152E242CACE800C5E1C1 /* Build configuration list for PBXNativeTarget "AmygdalaTests" */;
+			buildPhases = (
+				D79D1523242CACE800C5E1C1 /* Sources */,
+				D79D1524242CACE800C5E1C1 /* Frameworks */,
+				D79D1525242CACE800C5E1C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D79D152D242CACE800C5E1C1 /* PBXTargetDependency */,
+			);
+			name = AmygdalaTests;
+			productName = AmygdalaTests;
+			productReference = D79D1527242CACE800C5E1C1 /* AmygdalaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -182,6 +238,10 @@
 				TargetAttributes = {
 					A4B5B9E52428CF37002147CA = {
 						CreatedOnToolsVersion = 11.3.1;
+					};
+					D79D1526242CACE800C5E1C1 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = A4B5B9E52428CF37002147CA;
 					};
 				};
 			};
@@ -199,6 +259,7 @@
 			projectRoot = "";
 			targets = (
 				A4B5B9E52428CF37002147CA /* FearExperience */,
+				D79D1526242CACE800C5E1C1 /* AmygdalaTests */,
 			);
 		};
 /* End PBXProject section */
@@ -208,8 +269,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D79D1522242CAC5A00C5E1C1 /* FearExperience.json in Resources */,
 				A4B5B9F62428CF39002147CA /* LaunchScreen.storyboard in Resources */,
 				A4B5B9F32428CF39002147CA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D79D1525242CACE800C5E1C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +296,7 @@
 				A4B5B9EA2428CF37002147CA /* AppDelegate.swift in Sources */,
 				A4B5B9EC2428CF37002147CA /* SceneDelegate.swift in Sources */,
 				A4B5BA042428DA27002147CA /* BaseCell.swift in Sources */,
+				D79D1520242CA46600C5E1C1 /* FearExperienceModel.swift in Sources */,
 				D77137C5242B713D00071698 /* WarningView.swift in Sources */,
 				D7589419242B4F3600166F3B /* Constant.swift in Sources */,
 				A4B5B9FE2428D07F002147CA /* WarningController.swift in Sources */,
@@ -236,7 +306,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D79D1523242CACE800C5E1C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D79D152A242CACE800C5E1C1 /* AmygdalaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D79D152D242CACE800C5E1C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A4B5B9E52428CF37002147CA /* FearExperience */;
+			targetProxy = D79D152C242CACE800C5E1C1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A4B5B9F42428CF39002147CA /* LaunchScreen.storyboard */ = {
@@ -400,6 +486,46 @@
 			};
 			name = Release;
 		};
+		D79D152F242CACE800C5E1C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9Y224ZS8GH;
+				INFOPLIST_FILE = AmygdalaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ajisaputrars.AmygdalaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Amygdala.app/Amygdala";
+			};
+			name = Debug;
+		};
+		D79D1530242CACE800C5E1C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9Y224ZS8GH;
+				INFOPLIST_FILE = AmygdalaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ajisaputrars.AmygdalaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Amygdala.app/Amygdala";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -417,6 +543,15 @@
 			buildConfigurations = (
 				A4B5B9FB2428CF39002147CA /* Debug */,
 				A4B5B9FC2428CF39002147CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D79D152E242CACE800C5E1C1 /* Build configuration list for PBXNativeTarget "AmygdalaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D79D152F242CACE800C5E1C1 /* Debug */,
+				D79D1530242CACE800C5E1C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
