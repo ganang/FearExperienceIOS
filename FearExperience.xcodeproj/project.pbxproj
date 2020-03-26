@@ -25,7 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A4B5B9E62428CF37002147CA /* FearExperience.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FearExperience.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4B5B9E62428CF37002147CA /* Amygdala.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amygdala.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4B5B9E92428CF37002147CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4B5B9EB2428CF37002147CA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A4B5B9F22428CF39002147CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 		A4B5B9E72428CF37002147CA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A4B5B9E62428CF37002147CA /* FearExperience.app */,
+				A4B5B9E62428CF37002147CA /* Amygdala.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -167,7 +167,7 @@
 			);
 			name = FearExperience;
 			productName = FearExperience;
-			productReference = A4B5B9E62428CF37002147CA /* FearExperience.app */;
+			productReference = A4B5B9E62428CF37002147CA /* Amygdala.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -376,7 +376,7 @@
 				);
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = fear.experience.FearExperience;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Amygdala;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -394,7 +394,7 @@
 				);
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = fear.experience.FearExperience;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Amygdala;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
