@@ -10,10 +10,17 @@ import UIKit
 
 class WarningView: BaseView {
     
+    let showWarning: UIImageView = {
+        let warning = UIImage(named: "Warning")
+        let warningPrompt = UIImageView(image: warning)
+        warningPrompt.translatesAutoresizingMaskIntoConstraints = false
+        return warningPrompt
+    } ()
+    
     let continueButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Continue", for: UIControl.State.normal)
+        button.setTitle("CONTINUE", for: UIControl.State.normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.backgroundColor = .red
         button.layer.cornerRadius = 8
@@ -23,6 +30,10 @@ class WarningView: BaseView {
     
     override func setupView() {
         self.backgroundColor = .black
+        
+        self.addSubview(showWarning)
+        showWarning.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 80).isActive = true
+        showWarning.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -200).isActive = true
         
         self.addSubview(continueButton)
         continueButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -60).isActive = true
