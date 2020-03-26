@@ -16,7 +16,7 @@ class MainController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Amygdala"
+        self.title = "Experiences"
                 
         self.mainView = MainView(frame: self.view.frame)
         setFearExperiences()
