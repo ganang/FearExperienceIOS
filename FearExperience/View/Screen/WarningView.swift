@@ -13,6 +13,7 @@ class WarningView: BaseView {
     let showWarning: UIImageView = {
         let warning = UIImage(named: "Warning")
         let warningPrompt = UIImageView(image: warning)
+        warningPrompt.contentMode = .scaleAspectFit
         warningPrompt.translatesAutoresizingMaskIntoConstraints = false
         return warningPrompt
     } ()
@@ -32,12 +33,16 @@ class WarningView: BaseView {
         self.backgroundColor = .black
         
         self.addSubview(showWarning)
-        showWarning.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 80).isActive = true
-        showWarning.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -200).isActive = true
-        
         self.addSubview(continueButton)
-        continueButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -60).isActive = true
+
+        showWarning.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
+        showWarning.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
+        showWarning.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
+        showWarning.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -60).isActive = true
+
+        continueButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -60).isActive = true
         continueButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        continueButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         continueButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
     }
 }
