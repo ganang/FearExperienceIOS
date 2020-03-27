@@ -43,6 +43,8 @@ class CardCell: BaseCell {
         button.imageEdgeInsets = UIEdgeInsets(top:0, left: 0, bottom:0, right: -85)
         button.titleEdgeInsets = UIEdgeInsets(top:0, left: -15, bottom:0, right:20)
         button.addTarget(self, action:#selector(onClickPlay), for: .touchUpInside)
+        button.startAnimatingPressActions()
+        
         return button
 
     }()
@@ -74,6 +76,6 @@ class CardCell: BaseCell {
         buttonPlay.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16).isActive = true
         buttonPlay.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
         buttonPlay.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        buttonPlay.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        buttonPlay.heightAnchor.constraint(equalToConstant: 35).isActive = true
     }
 }
