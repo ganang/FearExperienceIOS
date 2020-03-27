@@ -18,10 +18,10 @@ class ExperienceController: UIViewController {
     lazy var closeButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        let image = UIImage(systemName: "xmark")?.withRenderingMode(.alwaysTemplate)
+        let image = UIImage(named: "Back")?.withRenderingMode(.alwaysTemplate)
         button.tintColor = .gray
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        button.backgroundColor = UIColor(white: 1, alpha: 0.2)
+        button.alpha = 0.3
         button.setImage(image, for: UIControl.State.normal)
         button.contentMode = .scaleAspectFit
         button.imageView?.contentMode = .scaleAspectFit
