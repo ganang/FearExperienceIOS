@@ -97,12 +97,16 @@ class VideoExperienceView: UIView {
     func addPeriodicTimeObserver() {
         // Notify every half second
         let timeScale = CMTimeScale(NSEC_PER_SEC)
-        let time = CMTime(seconds: 0.5, preferredTimescale: timeScale)
-
-        timeObserverToken = player.addPeriodicTimeObserver(forInterval: time,
-                                                          queue: .main) {
-            [weak self] time in print("TIME", time)
+        let time = CMTime(seconds: 1, preferredTimescale: timeScale)
+        let duration = player.currentItem?.asset.duration
+        let secondsDuration = CMTimeGetSeconds((duration!))
+        
+        timeObserverToken = player.addPeriodicTimeObserver(forInterval: time, queue: .main) { [weak self] time in
+            let secondsProgress = CMTimeGetSeconds(time)
+            NotificationCenter.default.post(name: Notification.Name("progress"), object: nil, userInfo: ["progress": secondsProgress])
+            NotificationCenter.default.post(name: Notification.Name("duration"), object: nil, userInfo: ["duration": secondsDuration])
         }
+        
     }
     
     func removePeriodicTimeObserver() {
