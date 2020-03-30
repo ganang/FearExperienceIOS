@@ -43,6 +43,7 @@ class VideoExperienceView: UIView {
         player.play()
         isPlaying = true
         addPeriodicTimeObserver()
+        
     }
   
     // 11 Create player items from video URLs and insert them into the player's list
@@ -89,7 +90,7 @@ class VideoExperienceView: UIView {
     // MARK - Unnecessary Code
     @objc func wasDoubleTapped() {
     }
-  
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

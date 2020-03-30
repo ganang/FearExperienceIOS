@@ -16,6 +16,7 @@ class ExperienceController: UIViewController {
     var videoExperienceView = VideoExperienceView(videoUrl: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
     var duration: Double?
     var progressTime: Double?
+    var playingVideo:Bool = false
     
     lazy var closeButton: UIButton = {
         let button = UIButton()
@@ -23,7 +24,7 @@ class ExperienceController: UIViewController {
         let image = UIImage(named: "Back")?.withRenderingMode(.alwaysTemplate)
         button.tintColor = .gray
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        button.alpha = 0.3
+        button.alpha = 0.4
         button.setImage(image, for: UIControl.State.normal)
         button.contentMode = .scaleAspectFit
         button.imageView?.contentMode = .scaleAspectFit
@@ -33,7 +34,19 @@ class ExperienceController: UIViewController {
         return button
     }()
     
+    lazy var videoSlider: UISlider = {
+        let slider = UISlider()
+        slider.translatesAutoresizingMaskIntoConstraints = false
+        slider.minimumTrackTintColor = .red
+        slider.alpha = 0.5
+        slider.setThumbImage(UIImage(), for: .normal)
+        slider.setValue(0, animated: false)
+        
+        return slider
+    }()
+    
     @objc func onClickClose() {
+        playingVideo = false
         navigationController?.popViewController(animated: true)
     }
     
@@ -61,10 +74,18 @@ class ExperienceController: UIViewController {
         closeButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         closeButton.layer.cornerRadius = 20
         
+        view.addSubview(videoSlider)
+        videoSlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 35).isActive = true
+        videoSlider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -35).isActive = true
+        videoSlider.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        videoSlider.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        playingVideo = true
+
+
         NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveProgressData), name: NSNotification.Name(rawValue: "progress"), object: .none)
         
         NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveDurationData), name: NSNotification.Name(rawValue: "duration"), object: .none)
-        
     }
     
     deinit {
@@ -76,12 +97,17 @@ class ExperienceController: UIViewController {
         let userInfo = notification.userInfo
         duration = userInfo?["duration"] as? Double
         print(duration ?? 0.0)
+        let durationFloat = duration ?? 0.0
+        videoSlider.maximumValue = Float(durationFloat)           //can be tested once maximumvalue of 10 works with progress
+        //videoSlider.maximumValue = 10                               //test value
     }
     
     @objc func onDidReceiveProgressData(_ notification: Notification) {
         let userInfo = notification.userInfo
         progressTime = userInfo?["progress"] as? Double
         print(progressTime ?? 0.0)
+        let progressFloat = progressTime ?? 0.0
+        videoSlider.value = Float(progressFloat)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,6 +129,14 @@ class ExperienceController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
     
+    override var prefersHomeIndicatorAutoHidden: Bool {
+        if (playingVideo) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
 }
 
 
