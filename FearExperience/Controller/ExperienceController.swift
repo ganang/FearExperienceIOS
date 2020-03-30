@@ -14,6 +14,8 @@ class ExperienceController: UIViewController {
     var alreadyPlayVideo = false
     var videoPlayerView = VideoPlayerView()
     var videoExperienceView = VideoExperienceView(videoUrl: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
+    var duration: Double?
+    var progressTime: Double?
     
     lazy var closeButton: UIButton = {
         let button = UIButton()
@@ -59,6 +61,27 @@ class ExperienceController: UIViewController {
         closeButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         closeButton.layer.cornerRadius = 20
         
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveProgressData), name: NSNotification.Name(rawValue: "progress"), object: .none)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveDurationData), name: NSNotification.Name(rawValue: "duration"), object: .none)
+        
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name("progress"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name("duration"), object: nil)
+    }
+    
+    @objc func onDidReceiveDurationData(_ notification: Notification) {
+        let userInfo = notification.userInfo
+        duration = userInfo?["duration"] as? Double
+        print(duration ?? 0.0)
+    }
+    
+    @objc func onDidReceiveProgressData(_ notification: Notification) {
+        let userInfo = notification.userInfo
+        progressTime = userInfo?["progress"] as? Double
+        print(progressTime ?? 0.0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
