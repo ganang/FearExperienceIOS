@@ -22,6 +22,7 @@ class CardCell: BaseCell {
     
     let fearExperienceImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 12
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
@@ -35,7 +36,7 @@ class CardCell: BaseCell {
         button.setTitle("PLAY", for: UIControl.State.normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.backgroundColor = UIColor(red:0.00, green:0.76, blue:0.38, alpha:1.00)
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = 16
         button.setImage(image, for: UIControl.State.normal)
         button.tintColor = .white
         button.contentMode = .scaleAspectFit
@@ -76,6 +77,6 @@ class CardCell: BaseCell {
         buttonPlay.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16).isActive = true
         buttonPlay.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
         buttonPlay.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        buttonPlay.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        buttonPlay.heightAnchor.constraint(equalToConstant: 37.5).isActive = true
     }
 }
