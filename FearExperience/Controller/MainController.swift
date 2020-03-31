@@ -80,9 +80,9 @@ class MainController: UIViewController{
     }
     
     private func setupNavigationController(){
-        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = false
     }
 }
 

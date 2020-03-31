@@ -118,6 +118,7 @@ class ExperienceController: UIViewController {
         UIDevice.current.setValue(value, forKey: "orientation")
         videoExperienceView.play()
         alreadyPlayVideo = true
+        Utils.lockOrientation(.landscape)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
