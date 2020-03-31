@@ -27,4 +27,8 @@ struct Utils {
     static func fearExperienceJsonParser(data: Data) throws -> [FearExperienceModel]?{
         return try JSONDecoder().decode([FearExperienceModel].self, from: data)
     }
+    
+    static func secondsConverterToTime(_ seconds : Int) -> (hour: Int, minute: Int, second: Int) {
+      return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
 }
