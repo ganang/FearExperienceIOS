@@ -24,8 +24,9 @@ class WarningView: BaseView {
         button.setTitle("CONTINUE", for: UIControl.State.normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.backgroundColor = .red
-        button.layer.cornerRadius = 8
+        button.layer.cornerRadius = 10
         button.startAnimatingPressActions()
+        button.reversesTitleShadowWhenHighlighted = true
         
         return button
     }()
@@ -42,8 +43,8 @@ class WarningView: BaseView {
         showWarning.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -60).isActive = true
 
         continueButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -40).isActive = true
-        continueButton.widthAnchor.constraint(equalToConstant: 360).isActive = true
-        continueButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        continueButton.widthAnchor.constraint(equalToConstant: 250).isActive = true
+        continueButton.heightAnchor.constraint(equalToConstant: 47).isActive = true
         continueButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
     }
 }
