@@ -48,6 +48,10 @@ class ExperienceController: UIViewController {
     @objc func onClickClose() {
         playingVideo = false
         navigationController?.popViewController(animated: true)
+        Utils.lockOrientation(.portrait)
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
+        UINavigationController.attemptRotationToDeviceOrientation()
     }
     
     override func viewDidLoad() {
