@@ -33,4 +33,9 @@ class AmygdalaTests: XCTestCase {
             XCTAssertNotNil(path)
         }
     }
+    
+    func testTimeConverter(){
+        let time = Utils.secondsConverterToTime(100)
+        print("\(time.hour) hour, \(time.minute) minutes, \(time.second) seconds")
+    }
 }
