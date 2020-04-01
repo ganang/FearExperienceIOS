@@ -119,7 +119,7 @@ class CardCell: BaseCell {
         
         titleLabel.topAnchor.constraint(equalTo: blurredView.topAnchor, constant: 8).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: blurredView.leadingAnchor, constant: 16).isActive = true
-        titleLabel.bottomAnchor.constraint(equalTo: timeLabel.topAnchor, constant: -4).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: timeLabel.topAnchor, constant: -5).isActive = true
         
         timeLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5).isActive = true
         timeLabel.leadingAnchor.constraint(equalTo: blurredView.leadingAnchor, constant: 16).isActive = true
