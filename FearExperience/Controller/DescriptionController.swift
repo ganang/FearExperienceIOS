@@ -31,13 +31,13 @@ class DescriptionController: UIViewController {
         self.descriptionView.timeLabel.text = "\(String(format: "%02d", time.minute)):\(String(format: "%02d", time.second))"
     }
     
-    @objc private func buttonPlayPressed(){
+    @objc private func buttonPlayPressed(sender: UIButton){
         if self.fearExperience.fileBundleString == "" {
             Utils.createAlert(controller: self, style: .alert)
         } else {
             let experienceView = ExperienceController()
             experienceView.modalPresentationStyle = .fullScreen
-            experienceView.videoUrl = ""
+            experienceView.videoUrl = self.fearExperience.fileBundleString//""
             Utils.lockOrientation(.all)
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
             self.navigationController?.pushViewController(experienceView, animated: true)
