@@ -26,6 +26,44 @@ class CardCell: BaseCell {
         imageView.layer.cornerRadius = 12
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
+        
+        return imageView
+    }()
+    
+    func blurImage(image: UIImage, blurAmount: CGFloat) -> UIImage?
+    {
+        guard let ciImage = CIImage(image: image) else
+        {
+            return nil
+        }
+        
+        let blurFilter = CIFilter(name: "CIGaussianBlur")
+        blurFilter?.setValue(ciImage, forKey: kCIInputImageKey)
+        blurFilter?.setValue(blurAmount, forKey: kCIInputRadiusKey)
+        
+        guard let outputImage = blurFilter?.outputImage else
+        {
+            return nil
+        }
+        
+        return UIImage(ciImage: outputImage)
+    }
+    
+    let translucentLayer: UIImageView = {
+        let image = UIImage(named: "untitled")
+        //guard let layer = self.blurImage(image: image, blurAmount: 20) else
+        //{
+        //    return 0
+        //}
+        //let imageView = UIImageView(image: layer)
+        let imageView = UIImageView(image: image)
+        imageView.isOpaque = true
+        imageView.alpha = 0.5
+        imageView.layer.masksToBounds = false
+        imageView.layer.cornerRadius = 12
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        
         return imageView
     }()
 
@@ -78,5 +116,11 @@ class CardCell: BaseCell {
         buttonPlay.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
         buttonPlay.widthAnchor.constraint(equalToConstant: 100).isActive = true
         buttonPlay.heightAnchor.constraint(equalToConstant: 37.5).isActive = true
+        
+        containerView.addSubview(translucentLayer)
+        containerView.sendSubviewToBack(fearExperienceImageView)
+        translucentLayer.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        
+        
     }
 }
