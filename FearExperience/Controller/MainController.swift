@@ -50,11 +50,15 @@ class MainController: UIViewController{
     }
     
     @objc private func playButtonPressed(sender: UIButton) {
-        let experienceView = ExperienceController()
-        experienceView.modalPresentationStyle = .fullScreen
-        experienceView.videoUrl = ""
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
-        self.navigationController?.pushViewController(experienceView, animated: true)
+        if self.fearExperiences[sender.tag].fileBundleString == "" {
+            Utils.createAlert(controller: self, style: .alert)
+        } else {
+            let experienceView = ExperienceController()
+            experienceView.modalPresentationStyle = .fullScreen
+            experienceView.videoUrl = ""
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
+            self.navigationController?.pushViewController(experienceView, animated: true)
+        }
     }
     
     
@@ -90,7 +94,6 @@ class MainController: UIViewController{
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
         self.navigationController?.navigationBar.tintColor = .white
-//        self.navigationController?.navigationBar.barTintColor = .white
     }
 }
 

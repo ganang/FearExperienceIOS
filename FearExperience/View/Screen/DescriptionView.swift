@@ -16,6 +16,7 @@ class DescriptionView: BaseView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.image = UIImage(named: "1")
+        imageView.backgroundColor = .clear
         return imageView
     }()
     
@@ -34,15 +35,12 @@ class DescriptionView: BaseView {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.sizeToFit()
-//        label.text = "dlfdjkf dfljdkfj dkfjdk jflkdjf dsjfkd klfdjk fjdkf dlkjfkldjf kdsjfkejrojfk ldjnl kdjkl fjsefjdksjf lkdsjfkl dsjfkldsj fkdsjf kldsjfkd"
-        
         return label
     }()
     
     let containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        
         return view
     }()
     
@@ -57,9 +55,7 @@ class DescriptionView: BaseView {
         let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         visualEffectView.alpha = 0.9
         visualEffectView.clipsToBounds = true
-        visualEffectView.layer.cornerRadius = 12
         visualEffectView.translatesAutoresizingMaskIntoConstraints = false
-        visualEffectView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         return visualEffectView
     }()
     
@@ -95,7 +91,14 @@ class DescriptionView: BaseView {
         button.titleEdgeInsets = UIEdgeInsets(top:0, left: -15, bottom:0, right:20)
         button.startAnimatingPressActions()
         return button
-
+    }()
+    
+    let descriptionTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Description :"
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
 
     override func setupView() {
@@ -103,6 +106,7 @@ class DescriptionView: BaseView {
         addSubview(scrollView)
         scrollView.addSubview(fearExperienceImageView)
         scrollView.addSubview(desctiptionLabel)
+        scrollView.addSubview(descriptionTitleLabel)
 
         scrollView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
@@ -112,12 +116,15 @@ class DescriptionView: BaseView {
         fearExperienceImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0).isActive = true
         fearExperienceImageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0).isActive = true
         fearExperienceImageView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0).isActive = true
-        fearExperienceImageView.bottomAnchor.constraint(equalTo: desctiptionLabel.topAnchor, constant: -16).isActive = true
+        fearExperienceImageView.bottomAnchor.constraint(equalTo: descriptionTitleLabel.topAnchor, constant: -16).isActive = true
         fearExperienceImageView.heightAnchor.constraint(equalToConstant: self.frame.height / 2.5).isActive = true
         fearExperienceImageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-        fearExperienceImageView.backgroundColor = .green
         
-        desctiptionLabel.topAnchor.constraint(equalTo: fearExperienceImageView.bottomAnchor, constant: 16).isActive = true
+        descriptionTitleLabel.topAnchor.constraint(equalTo: fearExperienceImageView.bottomAnchor, constant: 16).isActive = true
+        descriptionTitleLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 24).isActive = true
+        descriptionTitleLabel.bottomAnchor.constraint(equalTo: desctiptionLabel.topAnchor , constant: -8).isActive = true
+        
+        desctiptionLabel.topAnchor.constraint(equalTo: descriptionTitleLabel.bottomAnchor, constant: 8).isActive = true
         desctiptionLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 24).isActive = true
         desctiptionLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -24).isActive = true
         desctiptionLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -32).isActive = true

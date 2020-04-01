@@ -21,12 +21,25 @@ class DescriptionController: UIViewController {
         self.navigationItem.largeTitleDisplayMode = .never
         
         self.title = self.fearExperience.title
-        self.descriptionView.fearExperienceImageView.image = UIImage(named: self.fearExperience.mainImageString)
         
+        self.descriptionView.fearExperienceImageView.image = UIImage(named: self.fearExperience.mainImageString)
         self.descriptionView.buttonPlay.addTarget(self, action: #selector(buttonPlayPressed), for: .touchUpInside)
+        self.descriptionView.desctiptionLabel.text = self.fearExperience.descriptionMovie
+        self.descriptionView.titleLabel.text = self.fearExperience.title
+        
+        let time = Utils.secondsConverterToTime(self.fearExperience.time)
+        self.descriptionView.timeLabel.text = "\(String(format: "%02d", time.minute)):\(String(format: "%02d", time.second))"
     }
     
     @objc private func buttonPlayPressed(){
-        
+        if self.fearExperience.fileBundleString == "" {
+            Utils.createAlert(controller: self, style: .alert)
+        } else {
+            let experienceView = ExperienceController()
+            experienceView.modalPresentationStyle = .fullScreen
+            experienceView.videoUrl = ""
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
+            self.navigationController?.pushViewController(experienceView, animated: true)
+        }
     }
 }

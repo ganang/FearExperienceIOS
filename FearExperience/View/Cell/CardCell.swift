@@ -67,6 +67,9 @@ class CardCell: BaseCell {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Title"
+        label.sizeToFit()
+        label.minimumScaleFactor = 0.5
+        label.adjustsFontSizeToFitWidth = true
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -119,6 +122,7 @@ class CardCell: BaseCell {
         
         titleLabel.topAnchor.constraint(equalTo: blurredView.topAnchor, constant: 8).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: blurredView.leadingAnchor, constant: 16).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: buttonPlay.leadingAnchor, constant: -5).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: timeLabel.topAnchor, constant: -5).isActive = true
         
         timeLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5).isActive = true
