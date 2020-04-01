@@ -11,9 +11,10 @@ import AVKit
 
 class ExperienceController: UIViewController {
     
+    var videoUrl: String!
     var alreadyPlayVideo = false
     var videoPlayerView = VideoPlayerView()
-    var videoExperienceView = VideoExperienceView(videoUrl: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
+    var videoExperienceView: VideoExperienceView!
     var duration: Double?
     var progressTime: Double?
     var playingVideo:Bool = false
@@ -56,6 +57,7 @@ class ExperienceController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.videoExperienceView = VideoExperienceView(videoUrl: self.videoUrl)
         
         view.backgroundColor = .black
         

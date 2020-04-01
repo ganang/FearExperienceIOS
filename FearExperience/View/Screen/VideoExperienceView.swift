@@ -48,8 +48,11 @@ class VideoExperienceView: UIView {
   
     // 11 Create player items from video URLs and insert them into the player's list
     private func addVideoToPlayer() {
-        guard let videoURL = URL(string: videoUrl)  else { print("url error"); return }
-        let asset = AVURLAsset(url: videoURL)
+//        guard let videoURL = URL(string: videoUrl)  else { print("url error"); return }
+//        let asset = AVURLAsset(url: videoURL)
+        
+        let asset = AVURLAsset(url: URL(fileURLWithPath: Bundle.main.path(forResource: "test2", ofType:"mov")!))
+        
         let item = AVPlayerItem(asset: asset)
         player.insert(item, after: player.items().last)
     }
