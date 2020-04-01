@@ -55,7 +55,8 @@ class MainController: UIViewController{
         } else {
             let experienceView = ExperienceController()
             experienceView.modalPresentationStyle = .fullScreen
-            experienceView.videoUrl = ""
+            experienceView.videoUrl = self.fearExperiences[sender.tag].fileBundleString
+            Utils.lockOrientation(.all)
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
             self.navigationController?.pushViewController(experienceView, animated: true)
         }
@@ -63,7 +64,7 @@ class MainController: UIViewController{
     
     
     override func viewWillDisappear(_ animated: Bool) {
-        Utils.lockOrientation(.all)
+//        Utils.lockOrientation(.all)
     }
     
     override func viewDidAppear(_ animated: Bool) {
