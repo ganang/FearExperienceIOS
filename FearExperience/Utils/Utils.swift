@@ -31,4 +31,10 @@ struct Utils {
     static func secondsConverterToTime(_ seconds : Int) -> (hour: Int, minute: Int, second: Int) {
       return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
+    
+    static func createAlert(controller: UIViewController, title: String, message: String, style: UIAlertController.Style){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: style)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        controller.present(alert, animated: true)
+    }
 }
