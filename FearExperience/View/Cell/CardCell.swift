@@ -16,7 +16,6 @@ class CardCell: BaseCell {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 12
-        
         return view
     }()
     
@@ -26,7 +25,6 @@ class CardCell: BaseCell {
         imageView.layer.cornerRadius = 12
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
-        
         return imageView
     }()
 
@@ -45,7 +43,6 @@ class CardCell: BaseCell {
         button.imageEdgeInsets = UIEdgeInsets(top:0, left: 0, bottom:0, right: -85)
         button.titleEdgeInsets = UIEdgeInsets(top:0, left: -15, bottom:0, right:20)
         button.startAnimatingPressActions()
-        
         return button
 
     }()
@@ -53,7 +50,6 @@ class CardCell: BaseCell {
     let blurredView: UIView = {
        let view = UIView()
         view.backgroundColor = .clear
-        
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

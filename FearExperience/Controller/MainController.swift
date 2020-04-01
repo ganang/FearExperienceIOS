@@ -106,6 +106,10 @@ extension MainController: UICollectionViewDelegate, UICollectionViewDataSource ,
         cell.buttonPlay.addTarget(self, action:#selector(playButtonPressed(sender:)), for: .touchUpInside)
 
         cell.fearExperienceImageView.image = UIImage(named: self.fearExperiences[indexPath.row].mainImageString)
+        cell.titleLabel.text = self.fearExperiences[indexPath.row].title
+        
+        let time = Utils.secondsConverterToTime(self.fearExperiences[indexPath.row].time)
+        cell.timeLabel.text = "\(String(format: "%02d", time.minute)):\(String(format: "%02d", time.second))"
         return cell
     }
     
