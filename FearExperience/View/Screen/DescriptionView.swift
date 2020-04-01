@@ -10,28 +10,13 @@ import UIKit
 
 class DescriptionView: BaseView {
     
-    lazy var closeButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        let image = UIImage(systemName: "xmark" )?.withRenderingMode(.alwaysTemplate)
-        button.backgroundColor = UIColor(white: 1, alpha: 1)
-        button.tintColor = .gray
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        button.alpha = 0.3
-        button.setImage(image, for: UIControl.State.normal)
-        button.contentMode = .scaleAspectFit
-        button.imageView?.contentMode = .scaleAspectFit
-        button.imageEdgeInsets = UIEdgeInsets(top:0, left: 0, bottom:0, right: 0)
-        
-        return button
-    }()
-    
     let fearExperienceImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.masksToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.image = UIImage(named: "1")
+        imageView.backgroundColor = .clear
         return imageView
     }()
     
@@ -39,7 +24,6 @@ class DescriptionView: BaseView {
         let view = UIScrollView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.showsVerticalScrollIndicator = false
-//        view.contentSize = CGSize(width: self.frame.width, height: self.frame.height)
         
         return view
     }()
@@ -51,17 +35,70 @@ class DescriptionView: BaseView {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.sizeToFit()
-        label.text = "dlfdjkf dfljdkfj dkfjdk jflkdjf dsjfkd klfdjk fjdkf dlkjfkldjf kdsjfkejrojfk ldjnl kdjkl fjsefjdksjf lkdsjfkl dsjfkldsj fkdsjf kldsjfkd"
-        
         return label
     }()
     
     let containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-//        view.backgroundColor = .systemPink
-        
         return view
+    }()
+    
+    let blurredView: UIView = {
+       let view = UIView()
+        view.backgroundColor = .clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let visualEffectView: UIVisualEffectView = {
+        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+        visualEffectView.alpha = 0.9
+        visualEffectView.clipsToBounds = true
+        visualEffectView.translatesAutoresizingMaskIntoConstraints = false
+        return visualEffectView
+    }()
+    
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Title"
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let timeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "01:40"
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    lazy var buttonPlay: UIButton = {
+        let button = UIButton()
+        let image = UIImage(systemName: "play.fill")
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("PLAY", for: UIControl.State.normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.backgroundColor = UIColor(red:0.00, green:0.76, blue:0.38, alpha:1.00)
+        button.layer.cornerRadius = 16
+        button.setImage(image, for: UIControl.State.normal)
+        button.tintColor = .white
+        button.contentMode = .scaleAspectFit
+        button.imageView?.contentMode = .scaleAspectFit
+        button.imageEdgeInsets = UIEdgeInsets(top:0, left: 0, bottom:0, right: -85)
+        button.titleEdgeInsets = UIEdgeInsets(top:0, left: -15, bottom:0, right:20)
+        button.startAnimatingPressActions()
+        return button
+    }()
+    
+    let descriptionTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Description :"
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
 
     override func setupView() {
@@ -69,6 +106,7 @@ class DescriptionView: BaseView {
         addSubview(scrollView)
         scrollView.addSubview(fearExperienceImageView)
         scrollView.addSubview(desctiptionLabel)
+        scrollView.addSubview(descriptionTitleLabel)
 
         scrollView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
@@ -78,46 +116,49 @@ class DescriptionView: BaseView {
         fearExperienceImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0).isActive = true
         fearExperienceImageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0).isActive = true
         fearExperienceImageView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0).isActive = true
-        fearExperienceImageView.bottomAnchor.constraint(equalTo: desctiptionLabel.topAnchor, constant: -16).isActive = true
+        fearExperienceImageView.bottomAnchor.constraint(equalTo: descriptionTitleLabel.topAnchor, constant: -16).isActive = true
         fearExperienceImageView.heightAnchor.constraint(equalToConstant: self.frame.height / 2.5).isActive = true
         fearExperienceImageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-        fearExperienceImageView.backgroundColor = .green
         
-        desctiptionLabel.topAnchor.constraint(equalTo: fearExperienceImageView.bottomAnchor, constant: 16).isActive = true
-        desctiptionLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16).isActive = true
-        desctiptionLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16).isActive = true
-        desctiptionLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -16).isActive = true
-//        desctiptionLabel.heightAnchor.constraint(equalToConstant: 500).isActive = true
+        descriptionTitleLabel.topAnchor.constraint(equalTo: fearExperienceImageView.bottomAnchor, constant: 16).isActive = true
+        descriptionTitleLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 24).isActive = true
+        descriptionTitleLabel.bottomAnchor.constraint(equalTo: desctiptionLabel.topAnchor , constant: -8).isActive = true
         
-        desctiptionLabel.backgroundColor = .systemOrange
+        desctiptionLabel.topAnchor.constraint(equalTo: descriptionTitleLabel.bottomAnchor, constant: 8).isActive = true
+        desctiptionLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 24).isActive = true
+        desctiptionLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -24).isActive = true
+        desctiptionLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -32).isActive = true
+                
+        fearExperienceImageView.addSubview(blurredView)
         
-//        containerView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 16).isActive = true
-//        containerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16).isActive = true
-//        containerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16).isActive = true
-//        containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -16).isActive = true
-//        containerView.heightAnchor.constraint(equalToConstant: 700).isActive = true
-//        containerView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-//
-//        containerView.backgroundColor = .green
-
-//        containerView.addSubview(fearExperienceImageView)
-//        fearExperienceImageView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
-//        fearExperienceImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
-//        fearExperienceImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
-//        fearExperienceImageView.heightAnchor.constraint(equalTo: containerView.heightAnchor).isActive = true
-//
-//        addSubview(closeButton)
-//        closeButton.topAnchor.constraint(equalTo: topAnchor, constant: 52).isActive = true
-//        closeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24).isActive = true
-//        closeButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-//        closeButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-//        closeButton.layer.cornerRadius = 25
-
-//        containerView.addSubview(desctiptionLabel)
-//        desctiptionLabel.topAnchor.constraint(equalTo: fearExperienceImageView.bottomAnchor, constant: 16).isActive = true
-//        desctiptionLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16).isActive = true
-//        desctiptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16).isActive = true
+        blurredView.bottomAnchor.constraint(equalTo: fearExperienceImageView.bottomAnchor).isActive = true
+        blurredView.trailingAnchor.constraint(equalTo: fearExperienceImageView.trailingAnchor).isActive = true
+        blurredView.leadingAnchor.constraint(equalTo: fearExperienceImageView.leadingAnchor).isActive = true
+        blurredView.heightAnchor.constraint(equalToConstant: 55).isActive = true
         
+        self.blurredView.addSubview(visualEffectView)
+        self.blurredView.addSubview(titleLabel)
+        self.blurredView.addSubview(timeLabel)
+        
+        visualEffectView.bottomAnchor.constraint(equalTo: blurredView.bottomAnchor).isActive = true
+        visualEffectView.topAnchor.constraint(equalTo: blurredView.topAnchor).isActive = true
+        visualEffectView.leadingAnchor.constraint(equalTo: blurredView.leadingAnchor).isActive = true
+        visualEffectView.trailingAnchor.constraint(equalTo: blurredView.trailingAnchor).isActive = true
+        
+        titleLabel.topAnchor.constraint(equalTo: blurredView.topAnchor, constant: 8).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: blurredView.leadingAnchor, constant: 32).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: timeLabel.topAnchor, constant: -5).isActive = true
+        
+        timeLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5).isActive = true
+        timeLabel.leadingAnchor.constraint(equalTo: blurredView.leadingAnchor, constant: 32).isActive = true
+        timeLabel.bottomAnchor.constraint(equalTo: blurredView.bottomAnchor, constant: -5).isActive = true
+        timeLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        scrollView.addSubview(buttonPlay)
+        buttonPlay.bottomAnchor.constraint(equalTo: fearExperienceImageView.bottomAnchor, constant: -10).isActive = true
+        buttonPlay.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16).isActive = true
+        buttonPlay.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        buttonPlay.heightAnchor.constraint(equalToConstant: 35).isActive = true
     }
 
 }
