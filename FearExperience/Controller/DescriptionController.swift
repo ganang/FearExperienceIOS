@@ -11,6 +11,7 @@ import UIKit
 class DescriptionController: UIViewController {
     
     private var descriptionView: DescriptionView!
+    internal var fearExperience: FearExperienceModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,8 @@ class DescriptionController: UIViewController {
         self.view = self.descriptionView
         
         self.navigationItem.largeTitleDisplayMode = .never
-        self.title = "The Haunted Hospital"
+        
+        self.title = self.fearExperience.title
+        self.descriptionView.fearExperienceImageView.image = UIImage(named: self.fearExperience.mainImageString)
     }
 }

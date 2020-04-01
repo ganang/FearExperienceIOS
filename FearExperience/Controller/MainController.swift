@@ -123,7 +123,9 @@ extension MainController: UICollectionViewDelegate, UICollectionViewDataSource ,
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(DescriptionController(), animated: true)
+        let controller = DescriptionController()
+        controller.fearExperience = self.fearExperiences[indexPath.row]
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
 
