@@ -146,11 +146,11 @@ class DescriptionView: BaseView {
         visualEffectView.trailingAnchor.constraint(equalTo: blurredView.trailingAnchor).isActive = true
         
         titleLabel.topAnchor.constraint(equalTo: blurredView.topAnchor, constant: 8).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo: blurredView.leadingAnchor, constant: 32).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: blurredView.leadingAnchor, constant: 24).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: timeLabel.topAnchor, constant: -5).isActive = true
         
         timeLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5).isActive = true
-        timeLabel.leadingAnchor.constraint(equalTo: blurredView.leadingAnchor, constant: 32).isActive = true
+        timeLabel.leadingAnchor.constraint(equalTo: blurredView.leadingAnchor, constant: 24).isActive = true
         timeLabel.bottomAnchor.constraint(equalTo: blurredView.bottomAnchor, constant: -5).isActive = true
         timeLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         

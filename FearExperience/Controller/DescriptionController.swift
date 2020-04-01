@@ -38,8 +38,14 @@ class DescriptionController: UIViewController {
             let experienceView = ExperienceController()
             experienceView.modalPresentationStyle = .fullScreen
             experienceView.videoUrl = ""
+            Utils.lockOrientation(.all)
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
             self.navigationController?.pushViewController(experienceView, animated: true)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        Utils.lockOrientation(.portrait)
     }
 }

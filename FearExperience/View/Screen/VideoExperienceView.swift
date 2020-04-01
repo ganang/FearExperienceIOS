@@ -34,7 +34,7 @@ class VideoExperienceView: UIView {
   
     // 10 Set up player
     private func initializePlayer() {
-        videoPlayerView.playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        videoPlayerView.playerLayer.videoGravity = AVLayerVideoGravity.resizeAspect
         videoPlayerView.player = player
      
         addVideoToPlayer()
@@ -50,8 +50,7 @@ class VideoExperienceView: UIView {
     private func addVideoToPlayer() {
 //        guard let videoURL = URL(string: videoUrl)  else { print("url error"); return }
 //        let asset = AVURLAsset(url: videoURL)
-        
-        let asset = AVURLAsset(url: URL(fileURLWithPath: Bundle.main.path(forResource: "test2", ofType:"mov")!))
+        let asset = AVURLAsset(url: URL(fileURLWithPath: Bundle.main.path(forResource: self.videoUrl, ofType:"mp4")!))
         
         let item = AVPlayerItem(asset: asset)
         player.insert(item, after: player.items().last)
