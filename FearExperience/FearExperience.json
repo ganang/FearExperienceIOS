@@ -5,6 +5,7 @@
         "mainImageString": "1",
         "detailImageString": "1",
         "fileBundleString": "",
+        "descriptionMovie": "",
         "tag": [
             {
                 "tag": "hospital"
@@ -22,6 +23,7 @@
         "mainImageString": "2",
         "detailImageString": "2",
         "fileBundleString": "",
+        "descriptionMovie": "",
         "tag": [
             {
                 "tag": "house"
@@ -39,6 +41,7 @@
         "mainImageString": "3",
         "detailImageString": "3",
         "fileBundleString": "",
+        "descriptionMovie": "",
         "tag": [
             {
                 "tag": "house"

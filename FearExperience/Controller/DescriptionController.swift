@@ -11,7 +11,7 @@ import UIKit
 class DescriptionController: UIViewController {
     
     private var descriptionView: DescriptionView!
-    internal var fearExperience: FearExperienceModel!
+    var fearExperience: FearExperienceModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,5 +22,11 @@ class DescriptionController: UIViewController {
         
         self.title = self.fearExperience.title
         self.descriptionView.fearExperienceImageView.image = UIImage(named: self.fearExperience.mainImageString)
+        
+        self.descriptionView.buttonPlay.addTarget(self, action: #selector(buttonPlayPressed), for: .touchUpInside)
+    }
+    
+    @objc private func buttonPlayPressed(){
+        
     }
 }
