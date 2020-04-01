@@ -1,7 +1,7 @@
 [
     {
         "title": "The Haunted Hospital",
-        "time": 100,
+        "time": 203,
         "mainImageString": "1",
         "detailImageString": "1",
         "fileBundleString": "",
@@ -17,7 +17,24 @@
             }]
     },
     {
-        "title": "The Darknest of the House",
+        "title": "The Forest",
+        "time": 52,
+        "mainImageString": "theforest",
+        "detailImageString": "theforest",
+        "fileBundleString": "",
+        "tag": [
+            {
+                "tag": "forest"
+            },
+            {
+                "tag": "suspense"
+            },
+            {
+                "tag": "dark"
+            }]
+    },
+    {
+        "title": "The Darkness of the House",
         "time": 121,
         "mainImageString": "2",
         "detailImageString": "2",
