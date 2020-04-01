@@ -101,7 +101,7 @@ extension MainController: UICollectionViewDelegate, UICollectionViewDataSource ,
        
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: experienceCellId, for: indexPath) as! CardCell
-        cell.view = self
+        cell.controller = self
         cell.buttonPlay.tag = indexPath.row
         cell.buttonPlay.addTarget(self, action:#selector(playButtonPressed(sender:)), for: .touchUpInside)
 

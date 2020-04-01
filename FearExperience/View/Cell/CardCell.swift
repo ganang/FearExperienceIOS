@@ -10,7 +10,7 @@ import UIKit
 
 class CardCell: BaseCell {
     
-    var view: UIViewController?
+    var controller: UIViewController?
 
     let containerView: UIView = {
         let view = UIView()
@@ -49,14 +49,7 @@ class CardCell: BaseCell {
         return button
 
     }()
-    
-//    @objc func onClickPlay() {
-//        let experienceView = ExperienceController()
-//        experienceView.modalPresentationStyle = .fullScreen
-//        view?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
-//        view?.navigationController?.pushViewController(experienceView, animated: true)
-//    }
-//    
+
     let blurredView: UIView = {
        let view = UIView()
         view.backgroundColor = .clear
@@ -73,6 +66,22 @@ class CardCell: BaseCell {
         visualEffectView.translatesAutoresizingMaskIntoConstraints = false
         visualEffectView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         return visualEffectView
+    }()
+    
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Title"
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let timeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Time"
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     override func setupViews() {
@@ -104,9 +113,21 @@ class CardCell: BaseCell {
         blurredView.heightAnchor.constraint(equalToConstant: 55).isActive = true
         
         self.blurredView.addSubview(visualEffectView)
+        self.blurredView.addSubview(titleLabel)
+        self.blurredView.addSubview(timeLabel)
+        
         visualEffectView.bottomAnchor.constraint(equalTo: blurredView.bottomAnchor).isActive = true
         visualEffectView.topAnchor.constraint(equalTo: blurredView.topAnchor).isActive = true
         visualEffectView.leadingAnchor.constraint(equalTo: blurredView.leadingAnchor).isActive = true
         visualEffectView.trailingAnchor.constraint(equalTo: blurredView.trailingAnchor).isActive = true
+        
+        titleLabel.topAnchor.constraint(equalTo: blurredView.topAnchor, constant: 8).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: blurredView.leadingAnchor, constant: 16).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: timeLabel.topAnchor, constant: -5).isActive = true
+        
+        timeLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5).isActive = true
+        timeLabel.leadingAnchor.constraint(equalTo: blurredView.leadingAnchor, constant: 16).isActive = true
+        timeLabel.bottomAnchor.constraint(equalTo: blurredView.bottomAnchor, constant: -5).isActive = true
+        timeLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
     }
 }
