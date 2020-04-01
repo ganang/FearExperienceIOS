@@ -21,6 +21,7 @@
 		D7142EA2242E255B00DE61F4 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7142EA1242E255B00DE61F4 /* Extension.swift */; };
 		D7445ACA243436F800094399 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7445AC9243436F800094399 /* DescriptionView.swift */; };
 		D7445ACC2434371700094399 /* DescriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7445ACB2434371700094399 /* DescriptionController.swift */; };
+		D7445AD02434676B00094399 /* test2.mov in Resources */ = {isa = PBXBuildFile; fileRef = D7445ACF2434676B00094399 /* test2.mov */; };
 		D7589415242B4DE300166F3B /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7589414242B4DE300166F3B /* BaseView.swift */; };
 		D7589417242B4E6D00166F3B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7589416242B4E6D00166F3B /* MainView.swift */; };
 		D7589419242B4F3600166F3B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7589418242B4F3600166F3B /* Constant.swift */; };
@@ -59,6 +60,7 @@
 		D7142EA1242E255B00DE61F4 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		D7445AC9243436F800094399 /* DescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		D7445ACB2434371700094399 /* DescriptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionController.swift; sourceTree = "<group>"; };
+		D7445ACF2434676B00094399 /* test2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = test2.mov; sourceTree = "<group>"; };
 		D7589414242B4DE300166F3B /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		D7589416242B4E6D00166F3B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D7589418242B4F3600166F3B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				A4B5B9F42428CF39002147CA /* LaunchScreen.storyboard */,
 				A4B5B9F22428CF39002147CA /* Assets.xcassets */,
 				A4B5B9F72428CF39002147CA /* Info.plist */,
+				D7445ACF2434676B00094399 /* test2.mov */,
 				D79D1521242CAC5A00C5E1C1 /* FearExperience.json */,
 			);
 			path = FearExperience;
@@ -285,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D79D1522242CAC5A00C5E1C1 /* FearExperience.json in Resources */,
+				D7445AD02434676B00094399 /* test2.mov in Resources */,
 				A4B5B9F62428CF39002147CA /* LaunchScreen.storyboard in Resources */,
 				A4B5B9F32428CF39002147CA /* Assets.xcassets in Resources */,
 			);
