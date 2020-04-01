@@ -19,11 +19,11 @@
     },
     {
         "title": "The Hideous Forest",
-        "time": 152,
+        "time": 53,
         "mainImageString": "theforest",
         "detailImageString": "theforest",
-        "fileBundleString": "",
-        "descriptionMovie": "This video is still in development.",
+        "fileBundleString": "theforest",
+        "descriptionMovie": "Waking up to an empty camp and a half-lit campfire in a forest, you wonder where your friends are. You don't feel normal, your surroundings look very different, and you heard noises. Experience what you couldn't, now.",
         "tag": [
             {
                 "tag": "forest"
@@ -41,7 +41,7 @@
         "mainImageString": "2",
         "detailImageString": "2",
         "fileBundleString": "",
-        "descriptionMovie": "This video is still in development.",
+        "descriptionMovie": "This experience is still in development.",
         "tag": [
             {
                 "tag": "house"
@@ -59,7 +59,7 @@
         "mainImageString": "6",
         "detailImageString": "6",
         "fileBundleString": "",
-        "descriptionMovie": "This video is still in development.",
+        "descriptionMovie": "This experience is still in development.",
         "tag": [
             {
                 "tag": "house"
