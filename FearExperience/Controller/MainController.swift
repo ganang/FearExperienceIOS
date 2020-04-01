@@ -83,6 +83,10 @@ class MainController: UIViewController{
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.isHidden = false
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
+        self.navigationController?.navigationBar.tintColor = .white
+//        self.navigationController?.navigationBar.barTintColor = .white
     }
 }
 
@@ -106,6 +110,11 @@ extension MainController: UICollectionViewDelegate, UICollectionViewDataSource ,
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
         return 16
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        print("Selected \(indexPath.row)")
+        self.navigationController?.pushViewController(DescriptionController(), animated: true)
     }
 }
 
