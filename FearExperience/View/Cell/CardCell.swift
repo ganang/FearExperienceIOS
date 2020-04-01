@@ -44,20 +44,19 @@ class CardCell: BaseCell {
         button.imageView?.contentMode = .scaleAspectFit
         button.imageEdgeInsets = UIEdgeInsets(top:0, left: 0, bottom:0, right: -85)
         button.titleEdgeInsets = UIEdgeInsets(top:0, left: -15, bottom:0, right:20)
-        button.addTarget(self, action:#selector(onClickPlay), for: .touchUpInside)
         button.startAnimatingPressActions()
         
         return button
 
     }()
     
-    @objc func onClickPlay() {
-        let experienceView = ExperienceController()
-        experienceView.modalPresentationStyle = .fullScreen
-        view?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
-        view?.navigationController?.pushViewController(experienceView, animated: true)
-    }
-    
+//    @objc func onClickPlay() {
+//        let experienceView = ExperienceController()
+//        experienceView.modalPresentationStyle = .fullScreen
+//        view?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
+//        view?.navigationController?.pushViewController(experienceView, animated: true)
+//    }
+//    
     let blurredView: UIView = {
        let view = UIView()
         view.backgroundColor = .clear

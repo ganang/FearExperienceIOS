@@ -79,7 +79,7 @@ class DescriptionView: BaseView {
         fearExperienceImageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0).isActive = true
         fearExperienceImageView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0).isActive = true
         fearExperienceImageView.bottomAnchor.constraint(equalTo: desctiptionLabel.topAnchor, constant: -16).isActive = true
-        fearExperienceImageView.heightAnchor.constraint(equalToConstant: self.frame.height / 2).isActive = true
+        fearExperienceImageView.heightAnchor.constraint(equalToConstant: self.frame.height / 2.5).isActive = true
         fearExperienceImageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         fearExperienceImageView.backgroundColor = .green
         
@@ -87,7 +87,7 @@ class DescriptionView: BaseView {
         desctiptionLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16).isActive = true
         desctiptionLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16).isActive = true
         desctiptionLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -16).isActive = true
-        desctiptionLabel.heightAnchor.constraint(equalToConstant: 500).isActive = true
+//        desctiptionLabel.heightAnchor.constraint(equalToConstant: 500).isActive = true
         
         desctiptionLabel.backgroundColor = .systemOrange
         
